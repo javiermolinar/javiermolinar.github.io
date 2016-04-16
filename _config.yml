@@ -1,18 +1,20 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Dependencies
+markdown:         kramdown
+highlighter:      pygments
+gems: [jekyll-paginate]
 
-# Site settings
-title: Some Insights
-email: javiermolinar@live.com
-description: > # this means to ignore newlines until "baseurl:"
-  The aim of this blog is just to write some thoughs that come to my mind, and hopefully help some else.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://javiermolinar.github.io" # the base hostname & protocol for your site
-github_username:  javiermolinar
+# Permalinks
+permalink:        pretty
+#relative_permalinks: true
 
-# Build settings
-markdown: kramdown
+# Setup
+title:            Some Insights
+tagline:          'A personal blog'
+description:      'Some programming insights'
+url:              http://javiermolinar.github.io
+baseurl:          /
+
+author:
+  name:           'Javier Molina'
+paginate:         5
+

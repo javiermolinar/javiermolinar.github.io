@@ -16,6 +16,9 @@ footer-links:
   linkedin: javiermolinar
   rss: followMe
 
+# Your disqus shortname, entering this will enable commenting on posts
+disqus: javiermolinargithubio
+
 # Setup
 title:            Some Insights
 tagline:          'A personal blog'

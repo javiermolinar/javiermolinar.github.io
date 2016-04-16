@@ -7,8 +7,10 @@ Javier Molina Reyes
 --------------------
 
 Full stack .Net Senior Software Developer
-
+--------------------
 Granada (Spain)
+
+![alt text](http://i.imgur.com/8AS1qMN.jpg "Title")
 
 PROFILE
 --------------------

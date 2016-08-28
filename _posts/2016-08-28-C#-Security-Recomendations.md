@@ -25,8 +25,8 @@ There are two types of conversions:
 An implicit conversion is when the compiler automatically converts one value to another:
 
 ```csharp
-    short value = 10;
-    int value2 = value; // Widening conversions always succedded.
+short value = 10;
+int value2 = value; // Widening conversions always succedded.
 ```
 
 An explicit conversion is when we need to use an additional operator or method to explicity tell the compiler how to perform the coversion.
@@ -34,8 +34,8 @@ An explicit conversion is when we need to use an additional operator or method t
 Narrowing conversions can fail if the value to convert cannot fit on the target variable:
 
 ```csharp
-    int value = 70000;
-    short value2 = (short)value; 
+int value = 70000;
+short value2 = (short)value; 
 ```
 
 By default C# do not throw an exception for invalid conversion in integers or floating point types. The value will be **truncated**. For floating point  the value  will be *Infinity*
@@ -43,11 +43,11 @@ By default C# do not throw an exception for invalid conversion in integers or fl
 To throw an exception for invalid narrowing conversion we can use the **Checked** keyword:
 
 ```csharp
-    checked{
+checked{
     int value = 70000;
     //It will throw an overflow exception if the conversion fail, like in this scenario.
     short value2 = (short)value; 
-    }        
+}        
 ```
 
 ## Never, ever hardcode passwords or other sensitive information into your application
@@ -111,7 +111,7 @@ To throw an exception for invalid narrowing conversion we can use the **Checked*
 
             command.ExecuteNonQueryAsync();
         }   
-            ```
+        ```
 
 - Escaping all User supplied input
 
@@ -154,13 +154,13 @@ How to validate inputs:
     If something goes wrong, tryParse will return false, instead throw an exception as Parse.
 
     ```csharp    
-        string value = "true";
-        bool b;
-        if(bool.tryParse(value, out b)){
-            //Do something
-        }else{
-            //Do somthing
-        }
+    string value = "true";
+    bool b;
+    if(bool.tryParse(value, out b)){
+        //Do something
+    }else{
+        //Do somthing
+    }
     ```
 
 - Convert:
@@ -168,8 +168,8 @@ How to validate inputs:
     Enable null values.
 
     ```csharp    
-        int i = Convert.ToInt32(null);
-        //i = 0
+    int i = Convert.ToInt32(null);
+    //i = 0
     ```
 
 - Regular expressions:
@@ -177,8 +177,7 @@ How to validate inputs:
     Enable null values.
 
     ```csharp    
-        bool isEmail = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-
+    bool isEmail = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
     ```
 
 ## Do not display exception information: it provides any would-be attacker with valuable clues

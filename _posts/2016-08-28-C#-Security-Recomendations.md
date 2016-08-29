@@ -56,10 +56,10 @@ checked{
 
     Code can be readed later, decompiling it.
 
-    ```csharp    
-    var connectionString = "Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey";
-    var queueName = "<Your queue name>";
-    var client = QueueClient.CreateFromConnectionString(connectionString, queueName);       
+    ```cs    
+        var connectionString = "Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey";
+        var queueName = "<Your queue name>";
+        var client = QueueClient.CreateFromConnectionString(connectionString, queueName);       
     ```
 
 -   DO NOT: Encrypt your password with symmetric algorithm
@@ -76,16 +76,16 @@ checked{
 
         A typical scenario is the sql injection, very common when the sql is not parametrized:
 
-        ```csharp    
-        using (SqlConnection connection = new SqlConnection(connectionString)) {
-            SqlCommand command = new SqlCommand(
-                "INSERT INTO People VALUES (firstname, lastname ,middlename)",
-                connection
-            );
+        ```cs  
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                SqlCommand command = new SqlCommand(
+                    "INSERT INTO People VALUES (firstname, lastname ,middlename)",
+                    connection
+                );
 
-            await connection.OpenAsync();
-            command.ExecuteNonQueryAsync();
-        }   
+                await connection.OpenAsync();
+                command.ExecuteNonQueryAsync();
+         }   
         ```
 
         What happen if the user enter the following string as middle name:
@@ -96,8 +96,8 @@ checked{
 
         To guard agains SQL Injection, you should never directly use user input in your SQL strings. Instead use parametrized SQL statements
 
-        ```csharp    
-        using (SqlConnection connection = new SqlConnection(connectionString)) {
+        ```cs    
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
             SqlCommand command = new SqlCommand(
                 "INSERT INTO People ([FirstName],[LastName],[MiddleName]) VALUES (@firstname,@lastname,@middlename)",
                 connection
@@ -111,6 +111,7 @@ checked{
 
             command.ExecuteNonQueryAsync();
         }   
+
         ```
 
 - Escaping all User supplied input
@@ -153,7 +154,7 @@ How to validate inputs:
 
     If something goes wrong, tryParse will return false, instead throw an exception as Parse.
 
-```csharp    
+```cs   
 string value = "true";
 bool b;
 if(bool.tryParse(value, out b)){
@@ -167,7 +168,7 @@ if(bool.tryParse(value, out b)){
 
     Enable null values.
 
-```csharp    
+```cs  
 int i = Convert.ToInt32(null);
 //i = 0
 ```
@@ -176,7 +177,7 @@ int i = Convert.ToInt32(null);
 
     Enable null values.
 
-```csharp    
+```cs    
 bool isEmail = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
 ```
 
@@ -185,9 +186,9 @@ bool isEmail = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:
 Failure to filter sensitive information when propagating exceptions often results in information leaks that can assist an attacker's efforts to develop further exploits. An attacker may craft input arguments to expose internal structures and mechanisms of the application. Both the exception message text and the type of an exception can leak information. For example, the FileNotFoundException message reveals information about the file system layout, and the exception type reveals the absence of the requested file.
 
 ```csharp    
-//This will throw an exception, if is not handle it will provide information about the operation system of the server and the location of the files.
-using (StreamReader streamreader = File.OpenText(wrongpath)){
-}        
+    //This will throw an exception, if is not handle it will provide information about the operation system of the server and the location of the files.
+    using (StreamReader streamreader = File.OpenText(wrongpath)){
+    }        
 ```
 ## Ensure that your application works while running with the least possible permissions. Few applications require that a user be logged in as an administrator <a id="trick5"></a>
 

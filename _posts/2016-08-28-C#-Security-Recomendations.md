@@ -4,18 +4,18 @@ title: C# Security recommendations
 ---
 
 # Table of Contents
-1. [Use the checked keyword to control the overflow-checking context for integral-type arithmetic operations and conversions](#Use-the-checked-keyword-to-control-the-overflow-checking-context-for-integral-type-arithmetic-operations-and-conversions)
-2. [Never, ever hardcode passwords or other sensitive information into your application.](#ever,-ever-hardcode-passwords-or-other-sensitive-information-into-your-application)
-3. [Always validate input that is used to generate SQL queries.](#Always-validate-input-that-is-used-to-generate-SQL-queries)
-4. [Validate all inputs into your methods.](#Validate-all-inputs-into-your-methods)
-5. [Do not display exception information: it provides any would-be attacker with valuable clues](#Do-not-display-exception-information:-it-provides-any-would-be-attacker-with-valuable-clues)
-6. [Ensure that your application works while running with the least possible permissions. Few applications require that a user be logged in as an administrator](#Ensure-that-your-application-works-while-running-with-the-least-possible-permissions.-Few-applications-require-that-a-user-be-logged-in-as-an-administrator)
-7. [Do not use your own encryption algorithms. Use the System.Security.Cryptography classes](#Do-not-use-your-own-encryption-algorithms.-Use-the-System.Security.Cryptography-classes)
-8. [Do not store sensitive information in XML or other configuration files](#Do-not-store-sensitive-information-in-XML-or-other-configuration-files)
-9. [Check managed code that wraps native code carefully. Confirm that the native code is secure](#Check-managed-code-that-wraps-native-code-carefully.-Confirm-that-the-native-code-is-secure)
-10. [Use caution when you use delegates passed from outside your application](#Use-caution-when-you-use-delegates-passed-from-outside-your-application)
+1. [Use the checked keyword to control the overflow-checking context for integral-type arithmetic operations and conversions](#trick1)
+2. [Never, ever hardcode passwords or other sensitive information into your application.](#trick2)
+3. [Always validate input that is used to generate SQL queries.](#trick3)
+4. [Validate all inputs into your methods.](#trick4)
+5. [Do not display exception information: it provides any would-be attacker with valuable clues](#trick5)
+6. [Ensure that your application works while running with the least possible permissions. Few applications require that a user be logged in as an administrator](#trick6)
+7. [Do not use your own encryption algorithms. Use the System.Security.Cryptography classes](#trick7)
+8. [Do not store sensitive information in XML or other configuration files](#trick8)
+9. [Check managed code that wraps native code carefully. Confirm that the native code is secure](#trick9)
+10. [Use caution when you use delegates passed from outside your application](#tric10)
 
-## Use the checked keyword to control the overflow-checking context for integral-type arithmetic operations and conversions
+## Use the checked keyword to control the overflow-checking context for integral-type arithmetic operations and conversions <a id="trick1"></a>
 
 There are two types of conversions: 
 
@@ -50,7 +50,7 @@ checked{
 }        
 ```
 
-## Never, ever hardcode passwords or other sensitive information into your application
+## Never, ever hardcode passwords or other sensitive information into your application  <a id="trick2"></a>
 
 -   DO NOT: store passwords in plain text
 
@@ -70,7 +70,7 @@ checked{
 
     ...
 
-## Always validate input that is used to generate SQL queries
+## Always validate input that is used to generate SQL queries <a id="trick3"></a>
 
 -    Use of Prepared Statements (Parameterized Queries)
 
@@ -90,8 +90,8 @@ checked{
 
         What happen if the user enter the following string as middle name:
 
-        ```csharp    
-        '); DELETE FROM People; --  
+        ```sql    
+        '); DELETE FROM People; 
         ```
 
         To guard agains SQL Injection, you should never directly use user input in your SQL strings. Instead use parametrized SQL statements
@@ -129,7 +129,7 @@ checked{
     
     -   CustomValidator: Use this control for custom validation, such as ensuring that a date is in the future or in the past.
 
-##  Validate all inputs into your methods
+##  Validate all inputs into your methods <a id="trick4"></a>
 
 Users falls into two categories:
 
@@ -153,34 +153,34 @@ How to validate inputs:
 
     If something goes wrong, tryParse will return false, instead throw an exception as Parse.
 
-    ```csharp    
-    string value = "true";
-    bool b;
-    if(bool.tryParse(value, out b)){
-        //Do something
-    }else{
-        //Do somthing
-    }
-    ```
+```csharp    
+string value = "true";
+bool b;
+if(bool.tryParse(value, out b)){
+    //Do something
+}else{
+    //Do somthing
+}
+```
 
 - Convert:
 
     Enable null values.
 
-    ```csharp    
-    int i = Convert.ToInt32(null);
-    //i = 0
-    ```
+```csharp    
+int i = Convert.ToInt32(null);
+//i = 0
+```
 
 - Regular expressions:
 
     Enable null values.
 
-    ```csharp    
-    bool isEmail = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-    ```
+```csharp    
+bool isEmail = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+```
 
-## Do not display exception information: it provides any would-be attacker with valuable clues
+## Do not display exception information: it provides any would-be attacker with valuable clues <a id="trick4"></a>
 
 Failure to filter sensitive information when propagating exceptions often results in information leaks that can assist an attacker's efforts to develop further exploits. An attacker may craft input arguments to expose internal structures and mechanisms of the application. Both the exception message text and the type of an exception can leak information. For example, the FileNotFoundException message reveals information about the file system layout, and the exception type reveals the absence of the requested file.
 
@@ -189,7 +189,7 @@ Failure to filter sensitive information when propagating exceptions often result
 using (StreamReader streamreader = File.OpenText(wrongpath)){
 }        
 ```
-## Ensure that your application works while running with the least possible permissions. Few applications require that a user be logged in as an administrator
+## Ensure that your application works while running with the least possible permissions. Few applications require that a user be logged in as an administrator <a id="trick5"></a>
 
 You can use code access permissions
 
@@ -200,7 +200,7 @@ public void ReadSomeImportantFile(){
 }       
 ```
 
-## Do not use your own encryption algorithms. Use the System.Security.Cryptography classes
+## Do not use your own encryption algorithms. Use the System.Security.Cryptography classes <a id="trick6"></a>
 
 - Symmetric algorithm: AesManaged.
 
@@ -208,7 +208,7 @@ public void ReadSomeImportantFile(){
 
 - Hashing: SHA256Managed.
 
-##  Give your assemblies strong names
+##  Give your assemblies strong names <a id="trick7"></a>
 
 Strongly naming an assembly has several benefits:
 
@@ -220,10 +220,10 @@ Strongly naming an assembly has several benefits:
 
 A strong-named assembly can reference only other assemblies that are also strongly named.
 
-## Do not store sensitive information in XML or other configuration files
+## Do not store sensitive information in XML or other configuration files <a id="trick8"></a>
 
-## Check managed code that wraps native code carefully. Confirm that the native code is secure
+## Check managed code that wraps native code carefully. Confirm that the native code is secure <a id="trick9"></a>
 
-## Use caution when you use delegates passed from outside your application
+## Use caution when you use delegates passed from outside your application <a id="trick10"></a>
 
 This is extra important on the MessageHub/Messaging!

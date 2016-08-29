@@ -13,7 +13,7 @@ title: C# Security recommendations
 7. [Do not use your own encryption algorithms. Use the System.Security.Cryptography classes](#trick7)
 8. [Do not store sensitive information in XML or other configuration files](#trick8)
 9. [Check managed code that wraps native code carefully. Confirm that the native code is secure](#trick9)
-10. [Use caution when you use delegates passed from outside your application](#tric10)
+10. [Use caution when you use delegates passed from outside your application](#trick10)
 
 ## Use the checked keyword to control the overflow-checking context for integral-type arithmetic operations and conversions <a id="trick1"></a>
 
@@ -190,6 +190,7 @@ Failure to filter sensitive information when propagating exceptions often result
     using (StreamReader streamreader = File.OpenText(wrongpath)){
     }        
 ```
+
 ## Ensure that your application works while running with the least possible permissions. Few applications require that a user be logged in as an administrator <a id="trick5"></a>
 
 You can use code access permissions

@@ -186,16 +186,16 @@ Abstract methods have the following features:
 
 -   Because an abstract method declaration provides no actual implementation, there is no method body; the method declaration simply ends with a semicolon and there are no curly braces ({ }) following the signature.  For example:  
 
-´´´cs
+```cs
 public abstract void MyMethod();
-´´´
+```
 
 The implementation is provided by an overriding method override, which is a member of a non-abstract class.
 
 It is an error to use the static or virtual modifiers in an abstract method declaration.
 
 
-´´´cs
+```cs
 abstract class BaseClass   // Abstract class
 {
     protected int _x = 100;
@@ -211,7 +211,7 @@ class DerivedClass : BaseClass
         _y++;
     }
 }
-´´´
+```
 
 ## Indexed properties
 

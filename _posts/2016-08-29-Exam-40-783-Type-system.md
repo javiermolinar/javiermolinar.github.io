@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C# Exam 40-783
+title: C# Exam 40-783 Working with the type system
 ---
 
 # Creating value types

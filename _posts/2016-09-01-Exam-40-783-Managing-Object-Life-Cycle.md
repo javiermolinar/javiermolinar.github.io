@@ -91,3 +91,15 @@ public sealed class SingleApplicationInstance : IDisposable
     }
 }
 ```
+
+References:
+
+http://blog.stephencleary.com/2009/08/how-to-implement-idisposable-and.html
+
+## Garbage Collector methods
+
+-   Collect() : Forces an inmediate garbage collection of all generations.
+
+-   KeepAlive() : References the specified object, making it inelifible for garbage collection. The purpose of GC.KeepAlive() is to force the garbage collector to treat the object as still live, thereby preventing it from being collected, and thereby preventing the finalizer from running prematurely.
+
+-   SupressFinalizer() : It's informing the Garbage Collector (GC) that this object was cleaned up fully.

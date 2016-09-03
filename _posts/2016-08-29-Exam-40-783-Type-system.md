@@ -145,7 +145,18 @@ enum Days2
         
         -   If the property or indexer has an override modifier, the accessor modifier must match the accessor of the overridden accessor, if any.
        
-        -   The accessibility level on the accessor must be more restrictive than the accessibility level on the property or indexer itself.
+        -   **The accessibility level on the accessor must be more restrictive than the accessibility level on the property or indexer itself**.
+
+        ```cs
+             public class Employee
+            {
+                protected string EmployeeType
+                {
+                    get;
+                    private set;
+                }
+            }
+        ```
 
     -   **Auto-Implemented properties**: Auto-implemented properties make property-declaration more concise when no additional logic is required in the property accessors.
 

@@ -476,3 +476,37 @@ string responseFromServer = reader.ReadToEnd ();
 reader.Close ();
 response.Close ();
 ```
+
+# Consuming XML
+
+-   XMLReader : Fast way of reading an XML
+
+    -   Create(Stream)
+    
+    -   Create(String) //From uri
+
+    -   Create(TextReader) //This could be a StringReader as well
+
+```cs
+using (XmlReader reader = XmlReader.Create("hireDate.xml", settings)) {
+
+  // Move to the hire-date element.
+  reader.MoveToContent();
+  reader.ReadToDescendant("hire-date");
+
+  // Return the hire-date as a DateTime object.
+  DateTime hireDate = reader.ReadElementContentAsDateTime();
+  Console.WriteLine("Six Month Review Date: {0}", hireDate.AddMonths(6));
+}
+
+```    
+
+-   XMLWritter
+
+-   XMLDocument  : In-memory XML Document. Support navigating and editing
+
+
+# Consuming JSON
+
+
+NewtonSoft.

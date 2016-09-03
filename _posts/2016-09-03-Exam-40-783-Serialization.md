@@ -127,6 +127,12 @@ stream.Close();
 
 **Instead of calling a Serialize method, you call the WriteObject method.**
 
+## JavaScriptSerializar
+
+Provides serialization and deserialization functionality for AJAX-enabled applications.
+
+To serialize an object, use the Serialize method. To deserialize a JSON string, use the Deserialize<T> or DeserializeObject methods
+
 ## DataContractSerializer
 
  Serializes and deserializes an instance of a type into an XML stream or document using a supplied data contract.

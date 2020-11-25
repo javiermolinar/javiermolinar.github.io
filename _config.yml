@@ -31,3 +31,5 @@ author:
   name:           'Javier Molina'
 paginate:         5
 
+
+theme: jekyll-theme-cayman

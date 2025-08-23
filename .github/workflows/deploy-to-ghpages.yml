@@ -35,10 +35,12 @@ jobs:
 
       - run: npm install
       - run: npm run build-ghpages
+      - name: Verify _site folder
+        run: ls -la _site
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          publish_dir: _site

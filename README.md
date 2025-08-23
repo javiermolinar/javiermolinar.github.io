@@ -1,1 +1,1 @@
-Another IT blog
+Another IT blog.

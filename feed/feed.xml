@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Blog Title</title>
   <subtitle>This is a longer description about your blog.</subtitle>
-  <link href="https://example.com/eleventy-base-blog/feed/feed.xml" rel="self" />
-  <link href="https://example.com/eleventy-base-blog/" />
+  <link href="https://example.com/javiermolinar.github.io/feed/feed.xml" rel="self" />
+  <link href="https://example.com/javiermolinar.github.io/" />
   <updated>2025-08-23T00:00:00Z</updated>
-  <id>https://example.com/eleventy-base-blog/</id>
+  <id>https://example.com/javiermolinar.github.io/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
     <title>Otro blog más en el cementerio de los blogs</title>
-    <link href="https://example.com/eleventy-base-blog/blog/firstpost/" />
+    <link href="https://example.com/javiermolinar.github.io/blog/firstpost/" />
     <updated>2025-08-23T00:00:00Z</updated>
-    <id>https://example.com/eleventy-base-blog/blog/firstpost/</id>
+    <id>https://example.com/javiermolinar.github.io/blog/firstpost/</id>
     <content type="html">&lt;p&gt;Ultimamente me encuentro en un estado de efervescencia. He recuperado el interes en la tecnologia. A ratos he llegado a pensar que me estaba conviertiendo en un ludita.
 Parte de la culpa de ese sentimiento lo tiene la llegada de las LLMs. Sin negar su utilidad siento que matan mi creatividad.&lt;/p&gt;
 &lt;p&gt;Asi que he decidido crear este blog. En español. Soy consciente que puede que nadie lea estas palabras. El monopolio de Google y el resto de buscadores cuyo modelo de negocio se basa en la publicidad ya se encarga de guardar debajo de la alfombra todo lo que no les es rentable &lt;a href=&quot;https://detailed.com/google-control/?ref=ppc.land&quot;&gt;1&lt;/a&gt;.&lt;/p&gt;

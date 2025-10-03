@@ -5,19 +5,38 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/javiermolinar.github.io/feed/feed.xml" rel="self" />
   <link href="https://example.com/javiermolinar.github.io/" />
-  <updated>2025-08-23T00:00:00Z</updated>
+  <updated>2025-10-03T00:00:00Z</updated>
   <id>https://example.com/javiermolinar.github.io/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Como hacer que una LLM escriba la descripcion de tu PR por ti</title>
+    <link href="https://example.com/javiermolinar.github.io/blog/prcommentfromllm/" />
+    <updated>2025-10-03T00:00:00Z</updated>
+    <id>https://example.com/javiermolinar.github.io/blog/prcommentfromllm/</id>
+    <content type="html">&lt;p&gt;Seguramemte haya mil formas de conseguir que una LLM cualquiera escriba la descripción de una pull request.
+La forma que propongo es probablemente la más ubicua.&lt;/p&gt;
+&lt;p&gt;Una vez que hayas terminado de implementar los cambios y añadir o arreglar los tests podemos guardar en un fichero el diff de git usando este commando:&lt;/p&gt;
+&lt;pre class=&quot;language-sh&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;diff&lt;/span&gt; origin/main&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;HEAD &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; changes.patch&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez guardado el diff ya podemos decirle a nuestra LLM de confianza, con acceso al código que nos genere la descripción de la pull request&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Generate a clear and concise Pull Request description summarizing the changes introduced in this branch.
+Use the diff provided in @changes.patch as the source of truth. Your description should include:
+A high-level overview of what was changed and why
+Any important implementation details or noteworthy decisions
+Impact or risks (e.g. breaking changes, migrations, performance considerations)
+Testing or validation steps, if applicable
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
   <entry>
     <title>Otro blog más en el cementerio de los blogs</title>
     <link href="https://example.com/javiermolinar.github.io/blog/firstpost/" />
     <updated>2025-08-23T00:00:00Z</updated>
     <id>https://example.com/javiermolinar.github.io/blog/firstpost/</id>
     <content type="html">&lt;p&gt;Ultimamente me encuentro en un estado de efervescencia. He recuperado el interes en la tecnologia. A ratos he llegado a pensar que me estaba conviertiendo en un ludita.
-Parte de la culpa de ese sentimiento lo tiene la llegada de las LLMs. Sin negar su utilidad siento que matan mi creatividad.&lt;/p&gt;
-&lt;p&gt;Asi que he decidido crear este blog. En español. Soy consciente que puede que nadie lea estas palabras. El monopolio de Google y el resto de buscadores cuyo modelo de negocio se basa en la publicidad ya se encarga de guardar debajo de la alfombra todo lo que no les es rentable &lt;a href=&quot;https://detailed.com/google-control/?ref=ppc.land&quot;&gt;1&lt;/a&gt;.&lt;/p&gt;
+Parte de este sentimiento lo tiene la llegada de las LLMs. Sin negar su utilidad siento que matan mi creatividad.&lt;/p&gt;
+&lt;p&gt;Asi que he decidido crear este blog. En español. Probablemente nadie lea estas palabras, el monopolio de Google y el resto de buscadores cuyo modelo de negocio se basa en la publicidad ya se encarga de esconder debajo de la alfombra todo lo que no les es rentable &lt;a href=&quot;https://detailed.com/google-control/?ref=ppc.land&quot;&gt;1&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;He dedicido hacerlo en español, por dos razones:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;El contenido que hay en español es muy pobre&lt;/li&gt;

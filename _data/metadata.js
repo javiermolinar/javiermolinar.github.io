@@ -1,8 +1,8 @@
 export default {
-  title: "Another IT blog",
+  title: "Javi Molina // Notes from a Distributed World",
   url: "https://kagi.es/",
   language: "sp",
-  description: "Comparto lo que creo interesante, me guardo lo demás.",
+  description: "Notes on distributed systems, observability, and the human side of engineering.",
   author: {
     name: "Javi Molina",
     email: "javi@kagi.es",

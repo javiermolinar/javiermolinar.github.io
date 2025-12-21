@@ -4,75 +4,775 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Tagged &#39;LLM&#39;</title>
-		<meta name="description" content="Comparto lo que creo interesante, me guardo lo demás.">
-		<link rel="alternate" href="/javiermolinar.github.io/feed/feed.xml" type="application/atom+xml" title="Another IT blog">
+		<meta name="description" content="Notes on distributed systems, observability, and the human side of engineering.">
+		<link rel="alternate" href="/javiermolinar.github.io/feed/feed.xml" type="application/atom+xml" title="Javi Molina // Notes from a Distributed World">
 		
 		
 		
 		<style>/* This is an arbitrary CSS string added to the bundle */
-/* Defaults */
-:root {
-	--font-family: -apple-system, system-ui, sans-serif;
-	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+/* ==========================================================================
+   BOTANICAL ENGINEER — Technical Blog Theme
+   ==========================================================================
+   
+   A theme that marries the precision of engineering with the serenity of 
+   botanical gardens. Clean technical typography meets an organic, earthy palette.
+   
+   Color Philosophy: Inspired by the quiet corner of a greenhouse where 
+   engineers sketch ideas on cream paper with sage-green annotations.
+*/
+
+/* ==========================================================================
+   FONT IMPORTS
+   ========================================================================== */
+
+/* Iosevka — The technical workhorse */
+@font-face {
+	font-family: 'Iosevka';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff2) format('woff2'), 
+	     url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff) format('woff');
 }
 
-/* Theme colors */
+@font-face {
+	font-family: 'Iosevka';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 600;
+	src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-600-normal.woff2) format('woff2'),
+	     url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-600-normal.woff) format('woff');
+}
+
+/* Iosevka Aile — The readable companion (quasi-proportional) */
+@font-face {
+	font-family: 'Iosevka Aile';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka-aile@latest/latin-400-normal.woff2) format('woff2'),
+	     url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka-aile@latest/latin-400-normal.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 600;
+	src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka-aile@latest/latin-600-normal.woff2) format('woff2'),
+	     url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka-aile@latest/latin-600-normal.woff) format('woff');
+}
+
+/* ==========================================================================
+   DESIGN TOKENS — The Botanical Pantone
+   ========================================================================== */
+
 :root {
-	--color-gray-20: #e0e0e0;
-	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
-
-	--background-color: #fff;
-
-	--text-color: var(--color-gray-90);
-	--text-color-link: #082840;
-	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
-
+	/* ── Typography ── */
+	--font-body: 'Iosevka Aile', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-mono: 'Iosevka', 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+	--font-heading: 'Iosevka Aile', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	
+	/* ── Botanical Palette (Light / Day Mode) ── */
+	/* Pantone 11-0604 "Gardenia" — warm cream paper */
+	--color-gardenia: #f1f1e8;
+	--color-gardenia-dark: #e8e8df;
+	
+	/* Pantone 19-0303 "Jet Black" — rich, earthy charcoal */
+	--color-jet: #2e2d2c;
+	--color-jet-light: #4a4948;
+	--color-jet-muted: #6b6a68;
+	
+	/* Pantone 18-0525 "Sage" — the botanical accent */
+	--color-sage: #7a8d6f;
+	--color-sage-dark: #5f7054;
+	--color-sage-light: #a3b396;
+	
+	/* Semantic mappings */
+	--bg-primary: var(--color-gardenia);
+	--bg-secondary: var(--color-gardenia-dark);
+	--text-primary: var(--color-jet);
+	--text-secondary: var(--color-jet-muted);
+	--accent: var(--color-sage);
+	--accent-hover: var(--color-sage-dark);
+	--border-subtle: #d8d8cf;
+	
+	/* ── Spacing System ── */
+	--space-xs: 0.25rem;
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: 2.5rem;
+	--space-2xl: 4rem;
+	--space-3xl: 6rem;
+	
+	/* ── Layout ── */
+	/* 68ch for technical content — slightly wider for code readability */
+	--content-width: 68ch;
+	--content-padding: clamp(1rem, 5vw, 2rem);
+	
+	/* ── Transitions ── */
+	--transition-fast: 150ms ease;
+	--transition-base: 200ms ease;
+	
+	/* ── Code ── */
 	--syntax-tab-size: 2;
 }
 
+/* ==========================================================================
+   DARK MODE — Evening in the Greenhouse
+   ========================================================================== */
+
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
-		--color-gray-90: #dad8d8;
-
-		/* --text-color is assigned to --color-gray-_ above */
-		--text-color-link: #1493fb;
-		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
-
-		--background-color: #15202b;
+		/* Deep forest floor at dusk */
+		--bg-primary: #1a1f1a;
+		--bg-secondary: #232823;
+		
+		/* Moonlit cream text */
+		--text-primary: #e8e8df;
+		--text-secondary: #a8a89f;
+		
+		/* Sage glows softly in moonlight */
+		--accent: #a3b396;
+		--accent-hover: #c4d4b8;
+		
+		--border-subtle: #3a3f3a;
 	}
 }
 
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
 
-/* Global stylesheet */
-* {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 @view-transition {
 	navigation: auto;
 }
 
-html,
-body {
-	padding: 0;
-	margin: 0 auto;
-	font-family: var(--font-family);
-	color: var(--text-color);
-	background-color: var(--background-color);
-}
-html {
-	overflow-y: scroll;
-}
-body {
-	max-width: 40em;
+/* Subtle page transition animation — keeps things fast but tactile */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 150ms;
+	animation-timing-function: ease-out;
 }
 
-/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+::view-transition-old(root) {
+	animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+	animation-name: fade-in;
+}
+
+@keyframes fade-out {
+	from { opacity: 1; transform: translateY(0); }
+	to   { opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes fade-in {
+	from { opacity: 0; transform: translateY(4px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+html {
+	overflow-y: scroll;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	/* Deep-link anchor offset — prevents headers from hiding under sticky elements */
+	scroll-padding-top: var(--space-2xl);
+}
+
+body {
+	font-family: var(--font-body);
+	color: var(--text-primary);
+	background-color: var(--bg-primary);
+	
+	/* Fluid type: 1.1rem at 320px → 1.25rem at 1200px
+	   Slightly larger to compensate for Iosevka's narrowness */
+	font-size: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
+	line-height: 1.65;
+	
+	/* The reading column */
+	max-width: var(--content-width);
+	margin: 0 auto;
+	padding: 0 var(--content-padding);
+	
+	min-height: 100vh;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY — Precision & Clarity
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-heading);
+	font-weight: 600;
+	color: var(--text-primary);
+	line-height: 1.25;
+	
+	/* Premium feel: slight negative letter-spacing */
+	letter-spacing: -0.01em;
+	
+	/* Prevent orphaned words */
+	text-wrap: balance;
+}
+
+/* Extra margin-top for clear section separation in technical docs */
+h1 {
+	font-size: clamp(1.75rem, 1.5rem + 1.5vw, 2.5rem);
+	margin-top: 0;
+	margin-bottom: var(--space-lg);
+}
+
+h2 {
+	font-size: clamp(1.4rem, 1.2rem + 1vw, 1.875rem);
+	margin-top: var(--space-3xl);
+	margin-bottom: var(--space-md);
+	
+	/* Visual separator for major sections */
+	padding-top: var(--space-lg);
+	border-top: 1px solid var(--border-subtle);
+}
+
+h3 {
+	font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+	margin-top: var(--space-2xl);
+	margin-bottom: var(--space-md);
+}
+
+h4 {
+	font-size: 1.125rem;
+	margin-top: var(--space-xl);
+	margin-bottom: var(--space-sm);
+}
+
+h5, h6 {
+	font-size: 1rem;
+	margin-top: var(--space-lg);
+	margin-bottom: var(--space-sm);
+	color: var(--text-secondary);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+p {
+	margin-bottom: var(--space-lg);
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+/* ==========================================================================
+   LINKS — Botanical Sage Underlines
+   ========================================================================== */
+
+a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-color: var(--accent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	
+	transition: 
+		color var(--transition-fast),
+		text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--accent-hover);
+	text-decoration-color: var(--accent-hover);
+}
+
+a:visited {
+	color: var(--color-sage-dark);
+}
+
+a:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* ==========================================================================
+   CODE BLOCKS — The Engineer's Workshop
+   ========================================================================== */
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+	background-color: var(--bg-secondary);
+	padding: 0.2em 0.4em;
+	border-radius: 4px;
+}
+
+/* Code within links shouldn't double-style */
+a code {
+	background-color: transparent;
+	padding: 0;
+}
+
+pre {
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+	line-height: 1.5;
+	
+	/* Generous padding for technical readability */
+	padding: var(--space-lg);
+	margin: var(--space-xl) 0;
+	
+	/* Botanical accent: sage left border with technical offset shadow */
+	background-color: var(--bg-secondary);
+	border: 1px solid var(--border-subtle);
+	border-left: 4px solid var(--accent);
+	border-radius: var(--radius-sm);
+	box-shadow: 4px 4px 0px var(--bg-secondary);
+	
+	/* Code display settings */
+	overflow-x: auto;
+	tab-size: var(--syntax-tab-size);
+	-moz-tab-size: var(--syntax-tab-size);
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	hyphens: none;
+}
+
+pre code {
+	background-color: transparent;
+	padding: 0;
+	font-size: inherit;
+	border-radius: 0;
+}
+
+/* ==========================================================================
+   BLOCKQUOTES — Greenhouse Annotations
+   ========================================================================== */
+
+blockquote {
+	margin: var(--space-xl) 0;
+	padding: var(--space-md) var(--space-lg);
+	
+	border-left: 4px solid var(--accent);
+	background-color: transparent;
+	
+	font-style: italic;
+	color: var(--text-secondary);
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+blockquote cite {
+	display: block;
+	margin-top: var(--space-sm);
+	font-style: normal;
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+}
+
+blockquote cite::before {
+	content: "— ";
+}
+
+/* ==========================================================================
+   LISTS
+   ========================================================================== */
+
+ul, ol {
+	margin-bottom: var(--space-lg);
+	padding-left: var(--space-lg);
+}
+
+li {
+	margin-bottom: var(--space-sm);
+	line-height: 1.65;
+}
+
+li::marker {
+	color: var(--accent);
+}
+
+li > ul,
+li > ol {
+	margin-top: var(--space-sm);
+	margin-bottom: 0;
+}
+
+/* ==========================================================================
+   IMAGES & MEDIA
+   ========================================================================== */
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 6px;
+}
+
+img[width][height] {
+	height: auto;
+}
+
+figure {
+	margin: var(--space-xl) 0;
+}
+
+figcaption {
+	margin-top: var(--space-sm);
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+	font-style: italic;
+	text-align: center;
+}
+
+/* ── Eleventy-Img Figure Stack ── */
+.image-container {
+	margin: var(--space-xl) 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.image-container img,
+.image-container picture {
+	max-width: 100%;
+	height: auto;
+	border-radius: 6px;
+	
+	/* Subtle shadow for depth */
+	box-shadow: 
+		0 2px 4px rgba(0, 0, 0, 0.06),
+		0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.image-container figcaption {
+	margin-top: var(--space-md);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	font-style: normal;
+	color: var(--text-secondary);
+	text-align: center;
+	letter-spacing: 0.02em;
+	line-height: 1.4;
+	max-width: 80%;
+}
+
+/* Caption with decorative dashes — technical annotation style */
+.image-container figcaption::before {
+	content: "— ";
+	color: var(--accent);
+}
+
+.image-container figcaption::after {
+	content: " —";
+	color: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+	.image-container img,
+	.image-container picture {
+		box-shadow: 
+			0 2px 4px rgba(0, 0, 0, 0.2),
+			0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+}
+
+video,
+iframe {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 6px;
+}
+
+iframe {
+	aspect-ratio: 16 / 9;
+	border: none;
+}
+
+/* ==========================================================================
+   TABLES — Technical Documentation Style
+   ========================================================================== */
+
+table {
+	width: 100%;
+	margin: var(--space-xl) 0;
+	border-collapse: collapse;
+	font-size: 0.9375rem;
+}
+
+th, td {
+	padding: var(--space-sm) var(--space-md);
+	text-align: left;
+	border-bottom: 1px solid var(--border-subtle);
+}
+
+th {
+	font-weight: 600;
+	font-size: 0.8125rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--text-secondary);
+}
+
+tr:last-child td {
+	border-bottom: none;
+}
+
+/* ==========================================================================
+   HORIZONTAL RULES
+   ========================================================================== */
+
+hr {
+	margin: var(--space-2xl) 0;
+	border: none;
+	border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--space-md);
+	
+	padding: var(--space-lg) 0;
+	margin-bottom: var(--space-xl);
+	border-bottom: 1px solid var(--border-subtle);
+}
+
+.home-link {
+	font-family: var(--font-mono);
+	font-size: 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--text-primary);
+	letter-spacing: -0.01em;
+	
+	transition: color var(--transition-fast);
+}
+
+.home-link:hover {
+	color: var(--accent);
+}
+
+.home-link:visited {
+	color: var(--text-primary);
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.nav {
+	display: flex;
+	gap: var(--space-md) var(--space-lg);
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+.nav-item {
+	display: inline-block;
+}
+
+.nav-item a {
+	font-size: 0.9rem;
+	text-decoration: none;
+	color: var(--text-secondary);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+	
+	transition: color var(--transition-fast);
+}
+
+.nav-item a:hover {
+	color: var(--accent);
+}
+
+.nav-item a:visited {
+	color: var(--text-secondary);
+}
+
+.nav a[aria-current="page"] {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-color: var(--accent);
+	text-decoration-thickness: 2px;
+}
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+
+main {
+	padding: var(--space-xl) 0;
+}
+
+main > :first-child {
+	margin-top: 0;
+}
+
+main > :last-child {
+	margin-bottom: 0;
+}
+
+/* ==========================================================================
+   POSTS LIST
+   ========================================================================== */
+
+.postlist {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.postlist-item {
+	margin-bottom: var(--space-xl);
+	padding-bottom: var(--space-xl);
+	border-bottom: 1px solid var(--border-subtle);
+}
+
+.postlist-item:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.postlist-date {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 0.8125rem;
+	color: var(--text-secondary);
+	margin-bottom: var(--space-xs);
+}
+
+.postlist-link {
+	font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	text-decoration: none;
+	color: var(--text-primary);
+	
+	transition: color var(--transition-fast);
+}
+
+.postlist-link:hover {
+	color: var(--accent);
+}
+
+.postlist-link:visited {
+	color: var(--text-primary);
+}
+
+.postlist-item-active .postlist-link {
+	color: var(--accent);
+}
+
+/* ==========================================================================
+   TAGS — Subtle Botanical Labels
+   ========================================================================== */
+
+.post-tag {
+	display: inline-block;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	color: var(--accent);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	
+	padding: 0.15em 0.5em;
+	background-color: transparent;
+	border: 1px solid var(--accent);
+	border-radius: 4px;
+	
+	transition: background-color var(--transition-fast);
+}
+
+.post-tag:hover {
+	background-color: var(--border-subtle);
+}
+
+.post-tag:visited {
+	color: var(--accent);
+}
+
+.post-metadata {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-sm);
+	list-style: none;
+	margin: var(--space-md) 0 var(--space-xl);
+	padding: 0;
+}
+
+.post-metadata time {
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   POST NAVIGATION
+   ========================================================================== */
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: var(--space-md);
+	list-style: none;
+	padding: var(--space-lg) 0;
+	margin-top: var(--space-2xl);
+	border-top: 1px solid var(--border-subtle);
+}
+
+.links-nextprev > * {
+	flex: 1;
+}
+
+.links-nextprev-next {
+	text-align: right;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+	padding: var(--space-xl) 0;
+	margin-top: var(--space-2xl);
+	border-top: 1px solid var(--border-subtle);
+	
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
 .visually-hidden:not(:focus):not(:active) {
 	clip: rect(0 0 0 0);
 	clip-path: inset(50%);
@@ -83,229 +783,540 @@ body {
 	width: 1px;
 }
 
-/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
-img{
-  max-width: 100%;
-}
-img[width][height] {
-  height: auto;
-}
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
-}
-video,
-iframe {
-	width: 100%;
-	height: auto;
-}
-iframe {
-	aspect-ratio: 16/9;
+#skip-link {
+	position: absolute;
+	top: var(--space-md);
+	left: var(--space-md);
+	z-index: 999;
+	
+	background: var(--bg-primary);
+	color: var(--text-primary);
+	padding: var(--space-sm) var(--space-md);
+	
+	text-decoration: none;
+	font-size: 0.875rem;
+	border: 1px solid var(--border-subtle);
+	border-radius: 4px;
 }
 
-p:last-child {
-	margin-bottom: 0;
+/* ==========================================================================
+   SELECTION
+   ========================================================================== */
+
+::selection {
+	background-color: var(--accent);
+	color: var(--bg-primary);
 }
-p {
+
+/* ==========================================================================
+   END — Botanical Engineer Theme
+   ========================================================================== */
+
+/* --- Crisp Overrides --- */
+
+:root {
+    /* Sharper spacing and radii */
+    --radius-sm: 0px; /* Hard corners for a blueprint look */
+}
+
+body {
+    /* Subtle background texture: Graph paper feel */
+    background-image: radial-gradient(var(--border-subtle) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+}
+
+/* ==========================================================================
+   SYNTAX HIGHLIGHTING — Botanical Code Colors
+   ==========================================================================
+   
+   Prism.js token styling for eleventy-plugin-syntaxhighlight.
+   Colors drawn from our greenhouse palette: sage annotations,
+   earthy strings, moonlit keywords.
+*/
+
+/* ── Botanical Syntax Tokens ── */
+:root {
+	/* Comments — Muted sage, like penciled garden notes */
+	--syntax-comment: #7a8d6f;
+	
+	/* Strings — Soft terracotta/clay, warm and earthy */
+	--syntax-string: #b07d62;
+	
+	/* Keywords — Deep forest green, structural emphasis */
+	--syntax-keyword: #5f7054;
+	
+	/* Functions — Sage with more presence */
+	--syntax-function: #6b8c5a;
+	
+	/* Variables/Properties — Warm umber */
+	--syntax-variable: #8b7355;
+	
+	/* Numbers — Muted copper */
+	--syntax-number: #a67c52;
+	
+	/* Operators/Punctuation — Subtle, doesn't compete */
+	--syntax-punctuation: #6b6a68;
+	
+	/* Class names/Types — Botanical olive */
+	--syntax-class: #7a8060;
+	
+	/* Regex/Special — Dusty rose */
+	--syntax-regex: #9b7a7a;
+	
+	/* Attributes — Faded moss */
+	--syntax-attr: #808a6d;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Comments — Lighter sage for dark backgrounds */
+		--syntax-comment: #8fa882;
+		
+		/* Strings — Warm clay, brightened for contrast */
+		--syntax-string: #d4a687;
+		
+		/* Keywords — Soft sage glow */
+		--syntax-keyword: #a3b396;
+		
+		/* Functions — Bright botanical green */
+		--syntax-function: #9cc08a;
+		
+		/* Variables — Warm sand */
+		--syntax-variable: #c9b896;
+		
+		/* Numbers — Soft copper glow */
+		--syntax-number: #d4a76a;
+		
+		/* Operators — Moonlit grey */
+		--syntax-punctuation: #a8a89f;
+		
+		/* Class names — Olive cream */
+		--syntax-class: #b8c4a0;
+		
+		/* Regex — Dusty rose, lifted */
+		--syntax-regex: #c9a8a8;
+		
+		/* Attributes — Pale moss */
+		--syntax-attr: #a8b492;
+	}
+}
+
+/* ── Base Token Styles ── */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: var(--syntax-comment);
+	font-style: italic;
+}
+
+.token.punctuation {
+	color: var(--syntax-punctuation);
+}
+
+.token.namespace {
+	opacity: 0.8;
+}
+
+/* ── Strings & Values — Earthy Warmth ── */
+.token.string,
+.token.attr-value,
+.token.template-string,
+.token.char {
+	color: var(--syntax-string);
+}
+
+/* ── Keywords & Control Flow ── */
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit,
+.token.boolean,
+.token.constant {
+	color: var(--syntax-keyword);
+}
+
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+	font-weight: 600;
+}
+
+/* ── Functions & Methods ── */
+.token.function,
+.token.method,
+.token.builtin {
+	color: var(--syntax-function);
+}
+
+/* ── Variables & Properties ── */
+.token.property,
+.token.variable,
+.token.parameter {
+	color: var(--syntax-variable);
+}
+
+/* ── Numbers ── */
+.token.number,
+.token.hexcode {
+	color: var(--syntax-number);
+}
+
+/* ── Classes & Types ── */
+.token.class-name,
+.token.type,
+.token.maybe-class-name {
+	color: var(--syntax-class);
+}
+
+/* ── Operators ── */
+.token.operator,
+.token.arrow,
+.token.combinator {
+	color: var(--syntax-punctuation);
+}
+
+/* ── HTML/XML Specific ── */
+.token.tag {
+	color: var(--syntax-keyword);
+}
+
+.token.attr-name {
+	color: var(--syntax-attr);
+}
+
+/* ── Regex & Special ── */
+.token.regex,
+.token.important {
+	color: var(--syntax-regex);
+}
+
+.token.important,
+.token.bold {
+	font-weight: 600;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/* ── Inserted/Deleted (for diffs) ── */
+.token.deleted {
+	color: #a65050;
+}
+
+.token.inserted {
+	color: var(--syntax-function);
+}
+
+/* ── Selection within code ── */
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+	background-color: var(--accent);
+	color: var(--bg-primary);
+}
+
+/* ==========================================================================
+   LINE HIGHLIGHTS — Code Tutorial Diff Styles
+   ==========================================================================
+   
+   For marking added/removed lines in code tutorials.
+   Works with eleventy-plugin-syntaxhighlight line highlighting.
+*/
+
+.highlight-line-add,
+.highlight-line-remove {
+	display: block;
+	margin-left: calc(-1 * var(--space-lg));
+	margin-right: calc(-1 * var(--space-lg));
+	padding-left: var(--space-lg);
+	padding-right: var(--space-lg);
+	position: relative;
+}
+
+/* ── Added Lines — Soft botanical green ── */
+.highlight-line-add {
+	background-color: rgba(122, 141, 111, 0.15);
+	border-left: 3px solid var(--color-sage);
+	padding-left: calc(var(--space-lg) - 3px);
+}
+
+.highlight-line-add::before {
+	content: "+";
+	position: absolute;
+	left: var(--space-sm);
+	color: var(--color-sage);
+	font-weight: 600;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	opacity: 0.8;
+}
+
+/* ── Removed Lines — Muted terracotta/rust ── */
+.highlight-line-remove {
+	background-color: rgba(176, 100, 100, 0.12);
+	border-left: 3px solid #a65050;
+	padding-left: calc(var(--space-lg) - 3px);
+	text-decoration: line-through;
+	text-decoration-color: rgba(166, 80, 80, 0.4);
+}
+
+.highlight-line-remove::before {
+	content: "−";
+	position: absolute;
+	left: var(--space-sm);
+	color: #a65050;
+	font-weight: 600;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	opacity: 0.8;
+}
+
+/* ── Dark Mode Adjustments ── */
+@media (prefers-color-scheme: dark) {
+	.highlight-line-add {
+		background-color: rgba(163, 179, 150, 0.12);
+		border-left-color: var(--accent);
+	}
+	
+	.highlight-line-add::before {
+		color: var(--accent);
+	}
+	
+	.highlight-line-remove {
+		background-color: rgba(180, 100, 100, 0.15);
+		border-left-color: #c97070;
+		text-decoration-color: rgba(200, 110, 110, 0.5);
+	}
+	
+	.highlight-line-remove::before {
+		color: #c97070;
+	}
+}
+
+/* ── Neutral Line Highlight (for emphasis without add/remove) ── */
+.highlight-line {
+	display: block;
+	margin-left: calc(-1 * var(--space-lg));
+	margin-right: calc(-1 * var(--space-lg));
+	padding-left: var(--space-lg);
+	padding-right: var(--space-lg);
+	background-color: rgba(122, 141, 111, 0.08);
+	border-left: 3px solid var(--border-subtle);
+	padding-left: calc(var(--space-lg) - 3px);
+}
+
+/* ==========================================================================
+   TABLE OF CONTENTS — Margin-Positioned Navigation
+   ==========================================================================
+   
+   Desktop: Floats in the left margin, sticky while reading
+   Mobile: Collapses into an expandable summary at the top
+*/
+
+.toc {
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
 	line-height: 1.5;
+	color: var(--text-secondary);
+	margin-bottom: var(--space-xl);
 }
 
-li {
-	line-height: 1.5;
+.toc-title {
+	font-weight: 600;
+	color: var(--text-primary);
+	margin-bottom: var(--space-sm);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
 }
 
-a[href] {
-	color: var(--text-color-link);
-}
-a[href]:visited {
-	color: var(--text-color-link-visited);
-}
-a[href]:hover,
-a[href]:active {
-	color: var(--text-color-link-active);
+.toc ol {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
 }
 
-main,
-footer {
-	padding: 1rem;
+.toc li {
+	margin: 0;
+	padding: var(--space-xs) 0;
+	border-left: 2px solid transparent;
+	padding-left: var(--space-sm);
+	transition: border-color var(--transition-fast), color var(--transition-fast);
 }
-main :first-child {
+
+.toc li:hover {
+	border-left-color: var(--accent);
+}
+
+.toc a {
+	color: var(--text-secondary);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+.toc a:hover {
+	color: var(--accent);
+}
+
+/* Nested levels — subtle indentation */
+.toc ol ol {
+	padding-left: var(--space-md);
+}
+
+.toc ol ol li {
+	font-size: 0.75rem;
+	padding: 2px 0 2px var(--space-sm);
+}
+
+/* ── Mobile: Collapsible TOC ── */
+@media (max-width: 80rem) {
+	.toc {
+		background-color: var(--bg-secondary);
+		border: 1px solid var(--border-subtle);
+		border-radius: 6px;
+		padding: 0;
+		margin-bottom: var(--space-xl);
+	}
+	
+	.toc summary {
+		cursor: pointer;
+		padding: var(--space-md);
+		font-weight: 600;
+		color: var(--text-primary);
+		font-size: 0.8rem;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+	
+	.toc summary::-webkit-details-marker {
+		display: none;
+	}
+	
+	.toc summary::before {
+		content: '▸';
+		transition: transform var(--transition-fast);
+	}
+	
+	.toc[open] summary::before {
+		transform: rotate(90deg);
+	}
+	
+	.toc .toc-content {
+		padding: 0 var(--space-md) var(--space-md);
+	}
+	
+	.toc .toc-title {
+		display: none;
+	}
+}
+
+/* ── Desktop: Margin-positioned sticky TOC ── */
+@media (min-width: 80rem) {
+	.toc {
+		position: fixed;
+		left: calc((100vw - var(--content-width)) / 2 - 16rem);
+		top: var(--space-3xl);
+		width: 14rem;
+		max-height: calc(100vh - var(--space-3xl) - var(--space-xl));
+		overflow-y: auto;
+		
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		
+		/* Subtle scrollbar */
+		scrollbar-width: thin;
+		scrollbar-color: var(--border-subtle) transparent;
+	}
+	
+	/* On desktop, <details> is always open and not interactive */
+	.toc summary {
+		display: none;
+	}
+	
+	.toc .toc-content {
+		padding: 0;
+	}
+	
+	.toc .toc-title {
+		display: block;
+	}
+	
+	/* Active section indicator */
+	.toc li.active {
+		border-left-color: var(--accent);
+	}
+	
+	.toc li.active > a {
+		color: var(--accent);
+	}
+}
+
+/* ==========================================================================
+   BLOGROLL STYLES
+   ========================================================================== */
+
+.blogroll {
+	margin-top: var(--space-l);
+}
+
+.blogroll h2 {
+	font-size: var(--step-1);
+	color: var(--accent);
+	margin-top: var(--space-l);
+	margin-bottom: var(--space-s);
+	padding-bottom: var(--space-2xs);
+	border-bottom: 1px solid var(--border);
+}
+
+.blogroll h2:first-child {
 	margin-top: 0;
 }
 
-header {
-	border-bottom: 1px dashed var(--color-gray-20);
-}
-
-#skip-link {
-	text-decoration: none;
-	background: var(--background-color);
-	color: var(--text-color);
-	padding: 0.5rem 1rem;
-	border: 1px solid var(--color-gray-90);
-	border-radius: 2px;
-}
-
-/* Prevent visually-hidden skip link fom pushing content around when focused */
-#skip-link.visually-hidden:focus {
-	position: absolute;
-	top: 1rem;
-	left: 1rem;
-	/* Ensure it is positioned on top of everything else when it is shown */
-	z-index: 999;
-}
-
-.links-nextprev {
-	display: flex;
-	justify-content: space-between;
-	gap: .5em 1em;
-	list-style: "";
-	border-top: 1px dashed var(--color-gray-20);
-	padding: 1em 0;
-}
-.links-nextprev > * {
-	flex-grow: 1;
-}
-.links-nextprev-next {
-	text-align: right;
-}
-
-table {
-	margin: 1em 0;
-}
-table td,
-table th {
-	padding-right: 1em;
-}
-
-pre,
-code {
-	font-family: var(--font-family-monospace);
-}
-pre:not([class*="language-"]) {
-	margin: .5em 0;
-	line-height: 1.375; /* 22px /16 */
-	-moz-tab-size: var(--syntax-tab-size);
-	-o-tab-size: var(--syntax-tab-size);
-	tab-size: var(--syntax-tab-size);
-	-webkit-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	overflow-x: auto;
-}
-code {
-	word-break: break-all;
-}
-
-/* Header */
-header {
-	display: flex;
-	gap: 1em;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1em;
-}
-.home-link {
-	flex-grow: 1;
-	font-size: 1em; /* 16px /16 */
-	font-weight: 700;
-}
-.home-link:link:not(:hover) {
-	text-decoration: none;
-}
-
-/* Nav */
-.nav {
-	display: flex;
-	gap: .5em 1em;
+.blogroll ul {
+	list-style: none;
 	padding: 0;
 	margin: 0;
-	list-style: none;
+	display: grid;
+	gap: var(--space-xs);
 }
-.nav-item {
-	display: inline-block;
+
+.blogroll li {
+	padding: var(--space-xs) var(--space-s);
+	background: var(--background-alt);
+	border-radius: var(--radius);
+	border-left: 3px solid var(--accent-muted);
+	transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-.nav-item a[href]:not(:hover) {
+
+.blogroll li:hover {
+	border-left-color: var(--accent);
+	background: var(--surface);
+}
+
+.blogroll li strong {
+	color: var(--text);
+}
+
+.blogroll li strong a {
+	color: var(--link);
 	text-decoration: none;
 }
-.nav a[href][aria-current="page"] {
+
+.blogroll li strong a:hover {
+	color: var(--accent);
 	text-decoration: underline;
-}
-
-/* Posts list */
-.postlist {
-	counter-reset: start-from var(--postlist-index);
-	list-style: none;
-	padding: 0;
-	padding-left: 1.5rem;
-}
-.postlist-item {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	counter-increment: start-from -1;
-	margin-bottom: 1em;
-}
-.postlist-item:before {
-	display: inline-block;
-	pointer-events: none;
-	content: "" counter(start-from, decimal-leading-zero) ". ";
-	line-height: 100%;
-	text-align: right;
-	margin-left: -1.5rem;
-}
-.postlist-date,
-.postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
-}
-.postlist-date {
-	word-spacing: -0.5px;
-}
-.postlist-link {
-	font-size: 1.1875em; /* 19px /16 */
-	font-weight: 700;
-	flex-basis: calc(100% - 1.5rem);
-	padding-left: .25em;
-	padding-right: .5em;
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
-}
-.postlist-item-active .postlist-link {
-	font-weight: bold;
-}
-
-/* Tags */
-.post-tag {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: capitalize;
-	font-style: italic;
-}
-.postlist-item > .post-tag {
-	align-self: center;
-}
-
-/* Tags list */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: .5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
 }</style>
 		
 	</head>
@@ -313,13 +1324,14 @@ header {
 		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/javiermolinar.github.io/" class="home-link">Another IT blog</a>
+			<a href="/javiermolinar.github.io/" class="home-link">Javi Molina // Notes from a Distributed World</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 					<li class="nav-item"><a href="/javiermolinar.github.io/">Home</a></li>
 					<li class="nav-item"><a href="/javiermolinar.github.io/blog/">Archive</a></li>
 					<li class="nav-item"><a href="/javiermolinar.github.io/about/">About</a></li>
+					<li class="nav-item"><a href="/javiermolinar.github.io/blogroll/">Blogroll</a></li>
 					<li class="nav-item"><a href="/javiermolinar.github.io/feed/feed.xml">Feed</a></li>
 				</ul>
 			</nav>
@@ -351,7 +1363,7 @@ header {
 			</p>
 		</footer>
 
-		<!-- This page `/tags/llm/` was built on 2025-10-03T15:13:26.930Z -->
+		<!-- This page `/tags/llm/` was built on 2025-12-21T11:27:03.760Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/xbxy_EL6cU.js"></script>
 	</body>
 </html>

@@ -30,6 +30,8 @@
 &lt;li&gt;&lt;strong&gt;How it has been tested:&lt;/strong&gt; Was it by hand, a unit test, or an integration test?&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Extra context:&lt;/strong&gt; Once this is provided, it is up to the reviewer (or LLM) to skim over your detailed implementation.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Take a look at this PR from the Tempo repository.:&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.avif 1860w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.webp 1860w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.png&quot; alt=&quot;Real-world example of a pr&quot; width=&quot;1860&quot; height=&quot;1242&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;h2 id=&quot;workflow-using-ai-as-your-technical-writer&quot;&gt;Workflow: Using AI as Your Technical Writer&lt;/h2&gt;
 &lt;p&gt;If you are a seasoned &amp;quot;vibe coder,&amp;quot; you can just tell your favorite tool to do it for you! Tools like &lt;strong&gt;Cursor&lt;/strong&gt; allow you to do that simply by using &lt;code&gt;@Git (Diff of Working Copy)&lt;/code&gt; and asking for a description directly.&lt;/p&gt;
 &lt;p&gt;However, I propose a different workflow—one that is more ubiquitous and works with any tool:&lt;/p&gt;

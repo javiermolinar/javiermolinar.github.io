@@ -25,6 +25,11 @@ GitHub is arguably one of the masters of writing pull requests. Ten years ago, t
 * **How it has been tested:** Was it by hand, a unit test, or an integration test?
 * **Extra context:** Once this is provided, it is up to the reviewer (or LLM) to skim over your detailed implementation.
 
+Take a look at this PR from the Tempo repository.:
+
+![Real-world example of a pr](../img/pr.png)
+
+
 ## Workflow: Using AI as Your Technical Writer
 
 If you are a seasoned "vibe coder," you can just tell your favorite tool to do it for you! Tools like **Cursor** allow you to do that simply by using `@Git (Diff of Working Copy)` and asking for a description directly.

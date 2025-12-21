@@ -1306,3 +1306,20 @@ code[class*="language-"] ::selection {
 	color: var(--accent);
 	text-decoration: underline;
 }
+
+/* ==========================================================================
+   MESSAGE BOX / TL;DR
+   ========================================================================== */
+
+.message-box {
+	background-color: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 1em 1.25em;
+	margin: 1.5em 0;
+	border-radius: 0 4px 4px 0;
+	color: var(--text);
+}
+
+.message-box strong {
+	color: var(--accent);
+}

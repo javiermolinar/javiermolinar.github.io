@@ -3,13 +3,6 @@
 	
 		
 		<url>
-			<loc>https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/</loc>
-			<lastmod>2025-10-03</lastmod>
-		</url>
-	
-	
-		
-		<url>
 			<loc>https://kagi.es/javiermolinar.github.io/about/</loc>
 			<lastmod>2025-12-21</lastmod>
 		</url>
@@ -47,6 +40,13 @@
 		<url>
 			<loc>https://kagi.es/javiermolinar.github.io/feed/feed.xml</loc>
 			<lastmod>2025-12-21</lastmod>
+		</url>
+	
+	
+		
+		<url>
+			<loc>https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/</loc>
+			<lastmod>2025-12-26</lastmod>
 		</url>
 	
 </urlset>

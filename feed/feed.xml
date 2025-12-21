@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="pretty-atom-feed.xsl" type="text/xsl"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-  <title>Blog Title</title>
-  <subtitle>This is a longer description about your blog.</subtitle>
-  <link href="https://example.com/javiermolinar.github.io/feed/feed.xml" rel="self" />
-  <link href="https://example.com/javiermolinar.github.io/" />
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="sp">
+  <title>Javi Molina // Notes from a Distributed World</title>
+  <subtitle>Notes on distributed systems, observability, and the human side of engineering.</subtitle>
+  <link href="https://kagi.es/javiermolinar.github.io/feed/feed.xml" rel="self" />
+  <link href="https://kagi.es/javiermolinar.github.io/" />
   <updated>2025-12-26T00:00:00Z</updated>
-  <id>https://example.com/javiermolinar.github.io/</id>
+  <id>https://kagi.es/javiermolinar.github.io/</id>
   <author>
-    <name>Your Name</name>
+    <name>Javi Molina</name>
+    <email>javi@kagi.es</email>
   </author>
   <entry>
     <title>Why writing a good PR description is more important than ever</title>
-    <link href="https://example.com/javiermolinar.github.io/blog/prcommentfromllm/" />
+    <link href="https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/" />
     <updated>2025-12-26T00:00:00Z</updated>
-    <id>https://example.com/javiermolinar.github.io/blog/prcommentfromllm/</id>
+    <id>https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/</id>
     <content type="html">&lt;p&gt;What differentiates a good engineer from a great one? One of the most impactful improvements you can make in your career is learning how to write well. This is an invaluable trait that will help you with everything from writing design docs and getting buy-in from your team, to composing better prompts and—why not—charming pull requests. This is especially important in the AI age; it can be a game changer.&lt;/p&gt;
 &lt;p&gt;Some years ago, I came across this blog post by Gergely Orosz: &lt;a href=&quot;https://blog.pragmaticengineer.com/on-writing-well/&quot;&gt;On Writing Well&lt;/a&gt;. It was an eye-opening revelation that we can put into practice in our day-to-day work.&lt;/p&gt;
 &lt;p&gt;As you probably already know, AI is everywhere, especially in the software development lifecycle. Your work doesn’t end after &amp;quot;vibe coding&amp;quot; a 200k LOC solution to a bug; you need to get this change merged, and for that, you need to be able to convince people. This is where we go back to the basics. It is even more important when there are already AI agents reviewing these diffs; as usual with AI, context is king.&lt;/p&gt;

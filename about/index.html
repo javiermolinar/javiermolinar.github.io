@@ -1334,6 +1334,59 @@ code[class*="language-"] ::selection {
 
 .message-box strong {
 	color: var(--accent);
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS — Tightening the Greenhouse
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    /* 1. Fix long blog name: Allow wrapping and reduce size */
+    .home-link {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        display: block;
+        max-width: 70%; /* Prevents it from bumping into the menu too hard */
+    }
+
+    /* 2. Tighten Header and Nav spacing */
+    header {
+        padding: var(--space-sm) 0;
+        margin-bottom: var(--space-md);
+        gap: var(--space-sm);
+    }
+
+    .nav {
+        gap: var(--space-xs) var(--space-md); /* Tighter gap between links */
+    }
+
+    /* 3. Reduce the massive gap before the Post Title */
+    main {
+        padding: var(--space-md) 0;
+    }
+
+    h1 {
+        font-size: 1.6rem; /* Slightly smaller title for mobile */
+        margin-bottom: var(--space-sm);
+        line-height: 1.2;
+    }
+
+    /* 4. De-clutter the Tags (Post Metadata) */
+    .post-metadata {
+        margin: var(--space-sm) 0 var(--space-lg);
+        gap: var(--space-xs); /* Bring tags closer together */
+    }
+
+    .post-tag {
+        font-size: 0.65rem; /* Smaller monospace text */
+        padding: 0.1em 0.4em;
+        letter-spacing: 0.02em;
+    }
+
+    /* 5. Shrink Horizontal Rules */
+    hr {
+        margin: var(--space-lg) 0;
+    }
 }</style>
 		
 	</head>
@@ -1373,7 +1426,7 @@ code[class*="language-"] ::selection {
 			</p>
 		</footer>
 
-		<!-- This page `/about/` was built on 2025-12-21T17:04:03.360Z -->
+		<!-- This page `/about/` was built on 2025-12-21T17:08:38.713Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

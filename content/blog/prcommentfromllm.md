@@ -1,6 +1,6 @@
 ---
-title:  Why writing a good PR description is more important than ever
-description: A great PR description is no longer documentation—it’s the master prompt that tells humans and AI why your code exists and whether it should be merged.
+title:  Writing a good pull request description is more important than ever
+description: A great pull request description is no longer documentation, it’s the master prompt that tells humans and AI why your code exists and whether it should be merged.
 date: 2025-12-26
 tags: LLM, Pull Request, Engineering, Developer Experience, Code Review
 ---
@@ -25,12 +25,14 @@ GitHub is arguably one of the masters of writing pull requests. Ten years ago, t
 * **How it has been tested:** Was it by hand, a unit test, or an integration test?
 * **Extra context:** Once this is provided, it is up to the reviewer (or LLM) to skim over your detailed implementation.
 
-Take a look at this PR from the Tempo repository.:
+Take a look at this PR from the Tempo repository:
 
 ![Real-world example of a pr](../img/pr.png)
 
 
-## Workflow: Using AI as Your Technical Writer
+## Hey! I wrote just too many code, can I use an AI as a Technical Writer?
+
+Sure!, why not?
 
 If you are a seasoned "vibe coder," you can just tell your favorite tool to do it for you! Tools like **Cursor** allow you to do that simply by using `@Git (Diff of Working Copy)` and asking for a description directly.
 
@@ -39,15 +41,15 @@ However, I propose a different workflow—one that is more ubiquitous and works 
 ### 1. Generate Real Context
 Once you’ve finished your changes and tests, extract the exact diff of your work into a patch file. This prevents the AI from hallucinating based on files you might have open that aren't part of the actual submission:
 
-```bash
+```sh
 git diff origin/main..HEAD > changes.patch
 ```
 
 ### 2. The Master Prompt
 Take that file to your trusted LLM (Cursor, Claude, ChatGPT) and use this prompt to get a professional description:
 
-```
-Generate a clear and concise Pull Request description summarizing the changes introduced in this branch. Use the diff provided in @changes.patch as the source of truth. Your description should include:
+<div class="message-box">
+  Generate a clear and concise Pull Request description summarizing the changes introduced in this branch. Use the diff provided in @changes.patch as the source of truth. Your description should include:
 
 - A high-level overview of what was changed and why.
 
@@ -56,9 +58,14 @@ Generate a clear and concise Pull Request description summarizing the changes in
 - Impact or risks (breaking changes, performance, etc.).
 
 - Testing or validation steps.
-```
+</div
 
 As always, review the output. Correct what is not accurate and try to give it your own tone. Don’t be a stochastic parrot.
+
+<div class="message-box">
+  <strong>Pro tip:</strong> You can use this very same workflow to get any AI to review your changes!
+</div>
+
 
 ## Conclusion
 In a world where LLMs perform the code reviews, your PR description is now the master prompt guiding that review. A mediocre description will result in a mediocre review.

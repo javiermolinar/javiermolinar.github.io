@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Why writing a good PR description is more important than ever</title>
-		<meta name="description" content="A great PR description is no longer documentation—it’s the master prompt that tells humans and AI why your code exists and whether it should be merged.">
+		<title>Writing a good pull request description is more important than ever</title>
+		<meta name="description" content="A great pull request description is no longer documentation, it’s the master prompt that tells humans and AI why your code exists and whether it should be merged.">
 		<link rel="alternate" href="/javiermolinar.github.io/feed/feed.xml" type="application/atom+xml" title="Javi Molina // Notes from a Distributed World">
 		
 		
@@ -1457,7 +1457,7 @@ pre[class*="language-diff-"] {
 				
 
 
-<h1 id="why-writing-a-good-pr-description-is-more-important-than-ever">Why writing a good PR description is more important than ever</h1>
+<h1 id="writing-a-good-pull-request-description-is-more-important-than-ever">Writing a good pull request description is more important than ever</h1>
 
 <ul class="post-metadata">
 	<li><time datetime="2025-12-26">26 December 2025</time></li>
@@ -1482,27 +1482,37 @@ pre[class*="language-diff-"] {
 <li><strong>How it has been tested:</strong> Was it by hand, a unit test, or an integration test?</li>
 <li><strong>Extra context:</strong> Once this is provided, it is up to the reviewer (or LLM) to skim over your detailed implementation.</li>
 </ul>
-<p>Take a look at this PR from the Tempo repository.:</p>
+<p>Take a look at this PR from the Tempo repository:</p>
 <p><picture><source type="image/avif" srcset="/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.avif 1860w"><source type="image/webp" srcset="/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.webp 1860w"><img loading="lazy" decoding="async" src="/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.png" alt="Real-world example of a pr" width="1860" height="1242"></picture></p>
-<h2 id="workflow-using-ai-as-your-technical-writer">Workflow: Using AI as Your Technical Writer</h2>
+<h2 id="hey-i-wrote-just-too-many-code-can-i-use-an-ai-as-a-technical-writer">Hey! I wrote just too many code, can I use an AI as a Technical Writer?</h2>
+<p>Sure!, why not?</p>
 <p>If you are a seasoned &quot;vibe coder,&quot; you can just tell your favorite tool to do it for you! Tools like <strong>Cursor</strong> allow you to do that simply by using <code>@Git (Diff of Working Copy)</code> and asking for a description directly.</p>
 <p>However, I propose a different workflow—one that is more ubiquitous and works with any tool:</p>
 <h3 id="1-generate-real-context">1. Generate Real Context</h3>
 <p>Once you’ve finished your changes and tests, extract the exact diff of your work into a patch file. This prevents the AI from hallucinating based on files you might have open that aren't part of the actual submission:</p>
-<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> origin/main<span class="token punctuation">..</span>HEAD <span class="token operator">></span> changes.patch</code></pre>
+<pre class="language-sh" tabindex="0"><code class="language-sh"><span class="token function">git</span> <span class="token function">diff</span> origin/main<span class="token punctuation">..</span>HEAD <span class="token operator">></span> changes.patch</code></pre>
 <h3 id="2-the-master-prompt">2. The Master Prompt</h3>
 <p>Take that file to your trusted LLM (Cursor, Claude, ChatGPT) and use this prompt to get a professional description:</p>
-<pre><code>Generate a clear and concise Pull Request description summarizing the changes introduced in this branch. Use the diff provided in @changes.patch as the source of truth. Your description should include:
-
-- A high-level overview of what was changed and why.
-
-- Any important implementation details or noteworthy decisions.
-
-- Impact or risks (breaking changes, performance, etc.).
-
-- Testing or validation steps.
-</code></pre>
-<p>As always, review the output. Correct what is not accurate and try to give it your own tone. Don’t be a stochastic parrot.</p>
+<div class="message-box">
+  Generate a clear and concise Pull Request description summarizing the changes introduced in this branch. Use the diff provided in @changes.patch as the source of truth. Your description should include:
+<ul>
+<li>
+<p>A high-level overview of what was changed and why.</p>
+</li>
+<li>
+<p>Any important implementation details or noteworthy decisions.</p>
+</li>
+<li>
+<p>Impact or risks (breaking changes, performance, etc.).</p>
+</li>
+<li>
+<p>Testing or validation steps.</p>
+</li>
+</ul>
+</div>As always, review the output. Correct what is not accurate and try to give it your own tone. Don’t be a stochastic parrot.<p></p>
+<div class="message-box">
+  <strong>Pro tip:</strong> You can use this very same workflow to get any AI to review your changes!
+</div>
 <h2 id="conclusion">Conclusion</h2>
 <p>In a world where LLMs perform the code reviews, your PR description is now the master prompt guiding that review. A mediocre description will result in a mediocre review.</p>
 <p>If you want technology to work for you, and not the other way around, mastering context communication is your new superpower. A machine can generate the code, but only you can provide the direction.</p>
@@ -1517,7 +1527,7 @@ pre[class*="language-diff-"] {
 			</p>
 		</footer>
 
-		<!-- This page `/blog/prcommentfromllm/` was built on 2025-12-22T15:05:49.813Z -->
+		<!-- This page `/blog/prcommentfromllm/` was built on 2025-12-22T15:14:55.586Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

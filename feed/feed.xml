@@ -12,7 +12,7 @@
     <email>javi@kagi.es</email>
   </author>
   <entry>
-    <title>Why writing a good PR description is more important than ever</title>
+    <title>Writing a good pull request description is more important than ever</title>
     <link href="https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/" />
     <updated>2025-12-26T00:00:00Z</updated>
     <id>https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/</id>
@@ -30,27 +30,37 @@
 &lt;li&gt;&lt;strong&gt;How it has been tested:&lt;/strong&gt; Was it by hand, a unit test, or an integration test?&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Extra context:&lt;/strong&gt; Once this is provided, it is up to the reviewer (or LLM) to skim over your detailed implementation.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Take a look at this PR from the Tempo repository.:&lt;/p&gt;
+&lt;p&gt;Take a look at this PR from the Tempo repository:&lt;/p&gt;
 &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.avif 1860w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.webp 1860w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/gRpx7Hdi2t-1860.png&quot; alt=&quot;Real-world example of a pr&quot; width=&quot;1860&quot; height=&quot;1242&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h2 id=&quot;workflow-using-ai-as-your-technical-writer&quot;&gt;Workflow: Using AI as Your Technical Writer&lt;/h2&gt;
+&lt;h2 id=&quot;hey-i-wrote-just-too-many-code-can-i-use-an-ai-as-a-technical-writer&quot;&gt;Hey! I wrote just too many code, can I use an AI as a Technical Writer?&lt;/h2&gt;
+&lt;p&gt;Sure!, why not?&lt;/p&gt;
 &lt;p&gt;If you are a seasoned &amp;quot;vibe coder,&amp;quot; you can just tell your favorite tool to do it for you! Tools like &lt;strong&gt;Cursor&lt;/strong&gt; allow you to do that simply by using &lt;code&gt;@Git (Diff of Working Copy)&lt;/code&gt; and asking for a description directly.&lt;/p&gt;
 &lt;p&gt;However, I propose a different workflow—one that is more ubiquitous and works with any tool:&lt;/p&gt;
 &lt;h3 id=&quot;1-generate-real-context&quot;&gt;1. Generate Real Context&lt;/h3&gt;
 &lt;p&gt;Once you’ve finished your changes and tests, extract the exact diff of your work into a patch file. This prevents the AI from hallucinating based on files you might have open that aren&#39;t part of the actual submission:&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;diff&lt;/span&gt; origin/main&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;HEAD &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; changes.patch&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-sh&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;diff&lt;/span&gt; origin/main&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;HEAD &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; changes.patch&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;2-the-master-prompt&quot;&gt;2. The Master Prompt&lt;/h3&gt;
 &lt;p&gt;Take that file to your trusted LLM (Cursor, Claude, ChatGPT) and use this prompt to get a professional description:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Generate a clear and concise Pull Request description summarizing the changes introduced in this branch. Use the diff provided in @changes.patch as the source of truth. Your description should include:
-
-- A high-level overview of what was changed and why.
-
-- Any important implementation details or noteworthy decisions.
-
-- Impact or risks (breaking changes, performance, etc.).
-
-- Testing or validation steps.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As always, review the output. Correct what is not accurate and try to give it your own tone. Don’t be a stochastic parrot.&lt;/p&gt;
+&lt;div class=&quot;message-box&quot;&gt;
+  Generate a clear and concise Pull Request description summarizing the changes introduced in this branch. Use the diff provided in @changes.patch as the source of truth. Your description should include:
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A high-level overview of what was changed and why.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Any important implementation details or noteworthy decisions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Impact or risks (breaking changes, performance, etc.).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Testing or validation steps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;As always, review the output. Correct what is not accurate and try to give it your own tone. Don’t be a stochastic parrot.&lt;p&gt;&lt;/p&gt;
+&lt;div class=&quot;message-box&quot;&gt;
+  &lt;strong&gt;Pro tip:&lt;/strong&gt; You can use this very same workflow to get any AI to review your changes!
+&lt;/div&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;In a world where LLMs perform the code reviews, your PR description is now the master prompt guiding that review. A mediocre description will result in a mediocre review.&lt;/p&gt;
 &lt;p&gt;If you want technology to work for you, and not the other way around, mastering context communication is your new superpower. A machine can generate the code, but only you can provide the direction.&lt;/p&gt;

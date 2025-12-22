@@ -5,17 +5,17 @@ date: 2025-12-26
 tags: LLM, Pull Request, Engineering, Developer Experience, Code Review
 ---
 
-What differentiates a good engineer from a great one? One of the most impactful improvements you can make in your career is learning how to write well. This is an invaluable trait that will help you with everything from writing design docs and getting buy-in from your team, to composing better prompts and—why not—charming pull requests. This is especially important in the AI age; it can be a game changer.
+What differentiates a good engineer from a great one? One of the most impactful improvements you can make in your career is learning how to write well. This is an invaluable trait that will help you with everything from writing design docs and getting buy-in from your team, to composing better prompts and why not charming pull requests. This is especially important in the AI age; it can be a game changer.
 
-Some years ago, I came across this blog post by Gergely Orosz: [On Writing Well](https://blog.pragmaticengineer.com/on-writing-well/). It was an eye-opening revelation that we can put into practice in our day-to-day work.
+Some years ago, I came across this blog post by Gergely Orosz: [On Writing Well](https://blog.pragmaticengineer.com/on-writing-well/). It was an eye-opening revelation that we can put into practice in our day-to-day work. Check it out.
 
 As you probably already know, AI is everywhere, especially in the software development lifecycle. Your work doesn’t end after "vibe coding" a 200k LOC solution to a bug; you need to get this change merged, and for that, you need to be able to convince people. This is where we go back to the basics. It is even more important when there are already AI agents reviewing these diffs; as usual with AI, context is king.
 
 ## How to write a pull request
 
-**First things first: we judge a book by its cover.** Your PR title is the most important part—try to make it as catchy and factual as possible. It should describe the intent, not necessarily the "how."
+**First things first: we judge a book by its cover.** Your PR title is the most important part, try to make it as catchy and factual as possible. It should describe the intent, not necessarily the "how."
 
-Don't forget the **Semantic Conventions**. A great PR starts with a searchable title. Adopting [Conventional Commits](https://www.conventionalcommits.org/) (e.g., `feat:`, `fix:`, `refactor:`) isn't just for automation or generating changelogs; it gives the reviewer—human or AI—an immediate mental map of the scope of your changes. It’s the "Subject Line" that determines the priority of the review.
+Don't forget the **Semantic Conventions**. A great PR starts with a searchable title. Adopting [Conventional Commits](https://www.conventionalcommits.org/) (e.g., `feat:`, `fix:`, `refactor:`) isn't just for automation or generating changelogs; it gives the reviewer, human or AI, an immediate mental map of the scope of your changes. It’s the "Subject Line" that determines the priority of the review.
 
 GitHub is arguably one of the masters of writing pull requests. Ten years ago, they wrote an excerpt that still stands: [How to write the perfect pull request](https://github.blog/developer-skills/github/how-to-write-the-perfect-pull-request/). In short, your PR description should answer the following questions:
 

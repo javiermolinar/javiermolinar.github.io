@@ -414,6 +414,14 @@ img {
 	border-radius: 6px;
 }
 
+/* Allow images to break out of the text column for more prominence */
+img[style*="max-width"] {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	width: 90vw;
+	max-width: min(800px, 90vw) !important;
+}
+
 img[width][height] {
 	height: auto;
 }

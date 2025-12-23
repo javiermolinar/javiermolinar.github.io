@@ -5,12 +5,36 @@
   <subtitle>Notes on distributed systems, observability, and the human side of engineering.</subtitle>
   <link href="https://kagi.es/javiermolinar.github.io/feed/feed.xml" rel="self" />
   <link href="https://kagi.es/javiermolinar.github.io/" />
-  <updated>2025-12-26T00:00:00Z</updated>
+  <updated>2025-12-28T00:00:00Z</updated>
   <id>https://kagi.es/javiermolinar.github.io/</id>
   <author>
     <name>Javi Molina</name>
     <email>javi@kagi.es</email>
   </author>
+  <entry>
+    <title>Am I a Prehistoric Developer? (And Why You Should Embrace Being One)</title>
+    <link href="https://kagi.es/javiermolinar.github.io/blog/aboutlearning/" />
+    <updated>2025-12-28T00:00:00Z</updated>
+    <id>https://kagi.es/javiermolinar.github.io/blog/aboutlearning/</id>
+    <content type="html">&lt;p&gt;As another year drew to a close, I found myself scrambling to spend my learning budget before it expired. I stumbled upon &lt;code&gt;Codecrafters.io&lt;/code&gt;, a cozy site in the same spirit as Advent of Code. It challenges you to implement a subset of popular services like SQLite, Redis, or Kafka. The goal: learn new things or refresh old knowledge. The idea is simple, you fulfill a set of incremental tasks, each with a sparse description, and that&#39;s it. The objective is to pass the tests; nobody is going to check how your code looks or ask how you did it.&lt;/p&gt;
+&lt;p&gt;I started with the &lt;code&gt;SQLite&lt;/code&gt; track; I work on building a database, so it looked like a natural choice. Everything was going well until I hit the first wall,and immediately thought, “I could just let an LLM handle this.” Why bother doing it by hand? Am I a prehistoric fella?&lt;/p&gt;
+&lt;h2 id=&quot;why-struggle-learning-a-new-thing-in-2026&quot;&gt;Why struggle learning a new thing in 2026?&lt;/h2&gt;
+&lt;p&gt;Last year, the number of people who believed LLMs were useless for coding tasks was decimated. Right now, we could divide ourselves into two groups: those who think LLMs are just a performance tool, and those who believe AI is going to replace us in the near future.&lt;/p&gt;
+&lt;p&gt;So, what’s the point of struggling to implement my own varint or B-tree, or skimming through the SQLite spec, when I can just type what I want and go watch a TV show? And an even more interesting question: why keep learning something new when the LLM already knows everything?&lt;/p&gt;
+&lt;p&gt;There are two ways to answer these questions. The first is that learning is a skill we need to hone, or it gets rusty. The second is that we don’t know what the future will look like; maybe AGI will arrive this year and 99% of the working population will be laid off, or maybe not. What I know for sure is that, as always, the fittest have the best chance to survive. Being able to learn new things and adapt to change is, and will remain, a differentiator.&lt;/p&gt;
+&lt;p&gt;So how do we actually learn in an era of AI shortcuts? By embracing struggle rather than avoiding it.&lt;/p&gt;
+&lt;h2 id=&quot;fall-learn-stand-stronger&quot;&gt;Fall, Learn, Stand Stronger&lt;/h2&gt;
+&lt;p&gt;Once we have decided that we don’t want to give up on learning new things, whether for fun or profit, we should ask ourselves what the best way to achieve it is. LLM advocates like Simon Willison believe that AI can be a more effective way to learn than the old-fashioned method of coding everything by hand:&lt;/p&gt;
+&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/aboutlearning/i7djxrZ-9d-2192.avif 2192w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/aboutlearning/i7djxrZ-9d-2192.webp 2192w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://kagi.es/javiermolinar.github.io/blog/aboutlearning/i7djxrZ-9d-2192.jpeg&quot; alt=&quot;Simon opinions&quot; style=&quot;width: 100%; max-width: 800px; cursor: pointer;&quot; onclick=&quot;window.open(this.src)&quot; width=&quot;2192&quot; height=&quot;302&quot;&gt;&lt;/picture&gt;
+&lt;p&gt;Simon raises a fair point, yet his approach overlooks fundamental principles of how we actually learn. His method prioritizes speed over depth—a trade-off that costs us more than we realize.
+The danger of the “15-minute review” is the illusion of competence. When an LLM explains its code, it feels clear because the AI has already done the heavy lifting of synthesis. But reading a solution is a passive act, not an active one.&lt;/p&gt;
+&lt;p&gt;The classic learning pyramid shows why “doing the real thing” is the foundation of learning, while reading solutions sits near the top. Learning sticks through repetition and practice: just like multiplication only becomes second nature after thousands of exercises, coding concepts become real only when we build them ourselves. Trying to shortcut this process with an LLM risks creating the illusion of competence rather than understanding. This is so true that it also applies to physical abilities, like learning to do a handstand.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/aboutlearning/4kt-sXCLuj-1092.avif 1092w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://kagi.es/javiermolinar.github.io/blog/aboutlearning/4kt-sXCLuj-1092.webp 1092w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://kagi.es/javiermolinar.github.io/blog/aboutlearning/4kt-sXCLuj-1092.png&quot; alt=&quot;learning pyramid&quot; width=&quot;1092&quot; height=&quot;718&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This doesn&#39;t mean LLMs have no place in learning, quite the opposite. They&#39;re powerful companions when used wisely: to explain concepts you&#39;re struggling with, to suggest approaches when you&#39;re stuck, or to review your completed work. But they should never replace the struggle that builds true understanding.&lt;/p&gt;
+&lt;p&gt;Am I a prehistoric fella? Maybe. But I want to be the one who knows how to start a fire.
+&lt;em&gt;&lt;strong&gt;Keep learning&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Writing a good pull request description is more important than ever</title>
     <link href="https://kagi.es/javiermolinar.github.io/blog/prcommentfromllm/" />

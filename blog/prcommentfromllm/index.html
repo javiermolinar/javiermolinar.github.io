@@ -426,6 +426,14 @@ img {
 	border-radius: 6px;
 }
 
+/* Allow images to break out of the text column for more prominence */
+img[style*="max-width"] {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	width: 90vw;
+	max-width: min(800px, 90vw) !important;
+}
+
 img[width][height] {
 	height: auto;
 }
@@ -1517,6 +1525,8 @@ pre[class*="language-diff-"] {
 <p>In a world where LLMs perform the code reviews, your PR description is now the master prompt guiding that review. A mediocre description will result in a mediocre review.</p>
 <p>If you want technology to work for you, and not the other way around, mastering context communication is your new superpower. A machine can generate the code, but only you can provide the direction.</p>
 
+<ul class="links-nextprev"><li class="links-nextprev-next">Next →<br><a href="/javiermolinar.github.io/blog/aboutlearning/">Am I a Prehistoric Developer? (And Why You Should Embrace Being One)</a></li>
+</ul>
 
 			</heading-anchors>
 		</main>
@@ -1527,7 +1537,7 @@ pre[class*="language-diff-"] {
 			</p>
 		</footer>
 
-		<!-- This page `/blog/prcommentfromllm/` was built on 2025-12-22T15:14:55.586Z -->
+		<!-- This page `/blog/prcommentfromllm/` was built on 2025-12-23T15:06:31.998Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

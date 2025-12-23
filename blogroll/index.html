@@ -426,6 +426,14 @@ img {
 	border-radius: 6px;
 }
 
+/* Allow images to break out of the text column for more prominence */
+img[style*="max-width"] {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	width: 90vw;
+	max-width: min(800px, 90vw) !important;
+}
+
 img[width][height] {
 	height: auto;
 }
@@ -1469,7 +1477,7 @@ code[class*="language-"] ::selection {
 			</p>
 		</footer>
 
-		<!-- This page `/blogroll/` was built on 2025-12-22T15:14:55.586Z -->
+		<!-- This page `/blogroll/` was built on 2025-12-23T15:06:31.998Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

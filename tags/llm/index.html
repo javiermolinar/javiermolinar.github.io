@@ -426,6 +426,14 @@ img {
 	border-radius: 6px;
 }
 
+/* Allow images to break out of the text column for more prominence */
+img[style*="max-width"] {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	width: 90vw;
+	max-width: min(800px, 90vw) !important;
+}
+
 img[width][height] {
 	height: auto;
 }
@@ -1413,7 +1421,11 @@ code[class*="language-"] ::selection {
 <h1 id="tagged-llm">Tagged “LLM”</h1>
 
 
-<ol reversed="" class="postlist" style="--postlist-index: 2">
+<ol reversed="" class="postlist" style="--postlist-index: 3">
+	<li class="postlist-item">
+		<a href="/javiermolinar.github.io/blog/aboutlearning/" class="postlist-link">Am I a Prehistoric Developer? (And Why You Should Embrace Being One)</a>
+		<time class="postlist-date" datetime="2025-12-28">December 2025</time>
+	</li>
 	<li class="postlist-item">
 		<a href="/javiermolinar.github.io/blog/prcommentfromllm/" class="postlist-link">Writing a good pull request description is more important than ever</a>
 		<time class="postlist-date" datetime="2025-12-26">December 2025</time>
@@ -1433,7 +1445,7 @@ code[class*="language-"] ::selection {
 			</p>
 		</footer>
 
-		<!-- This page `/tags/llm/` was built on 2025-12-22T15:14:55.586Z -->
+		<!-- This page `/tags/llm/` was built on 2025-12-23T15:06:31.998Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

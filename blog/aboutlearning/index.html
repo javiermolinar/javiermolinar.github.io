@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Javi Molina // Notes from a Distributed World</title>
-		<meta name="description" content="Notes on distributed systems, observability, and the human side of engineering.">
+		<title>Am I a Prehistoric Developer? (And Why You Should Embrace Being One)</title>
+		<meta name="description" content="The Case for the Hard Way Why the struggle remains irreplaceable">
 		<link rel="alternate" href="/javiermolinar.github.io/feed/feed.xml" type="application/atom+xml" title="Javi Molina // Notes from a Distributed World">
 		
 		
@@ -1395,6 +1395,51 @@ code[class*="language-"] ::selection {
     hr {
         margin: var(--space-lg) 0;
     }
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
 }</style>
 		
 	</head>
@@ -1418,21 +1463,37 @@ code[class*="language-"] ::selection {
 		<main id="main">
 			<heading-anchors>
 				
-<h1 id="content-not-found">Content not found.</h1>
-<p>Go <a href="/javiermolinar.github.io/">home</a>.</p>
-<!--
 
-Read more: https://www.11ty.dev/docs/quicktips/not-found/
 
-This is compatible with:
+<h1 id="am-i-a-prehistoric-developer-and-why-you-should-embrace-being-one">Am I a Prehistoric Developer? (And Why You Should Embrace Being One)</h1>
 
-- GitHub Pages: https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/
-- GitLab Pages: https://docs.gitlab.com/ee/user/project/pages/introduction.html#custom-error-codes-pages
-- Netlify: https://www.netlify.com/docs/redirects/#custom-404
-- Cloudflare Pages: https://developers.cloudflare.com/pages/platform/serving-pages/#not-found-behavior
-- Vercel: https://vercel.com/guides/custom-404-page#static-site-generator-ssg
--->
+<ul class="post-metadata">
+	<li><time datetime="2025-12-28">28 December 2025</time></li>
+	<li><a href="/javiermolinar.github.io/tags/llm/" class="post-tag">LLM</a>, </li>
+	<li><a href="/javiermolinar.github.io/tags/engineering/" class="post-tag"> Engineering</a>, </li>
+	<li><a href="/javiermolinar.github.io/tags/learning/" class="post-tag"> Learning</a></li>
+</ul>
 
+<p>As another year drew to a close, I found myself scrambling to spend my learning budget before it expired. I stumbled upon <code>Codecrafters.io</code>, a cozy site in the same spirit as Advent of Code. It challenges you to implement a subset of popular services like SQLite, Redis, or Kafka. The goal: learn new things or refresh old knowledge. The idea is simple, you fulfill a set of incremental tasks, each with a sparse description, and that's it. The objective is to pass the tests; nobody is going to check how your code looks or ask how you did it.</p>
+<p>I started with the <code>SQLite</code> track; I work on building a database, so it looked like a natural choice. Everything was going well until I hit the first wall,and immediately thought, “I could just let an LLM handle this.” Why bother doing it by hand? Am I a prehistoric fella?</p>
+<h2 id="why-struggle-learning-a-new-thing-in-2026">Why struggle learning a new thing in 2026?</h2>
+<p>Last year, the number of people who believed LLMs were useless for coding tasks was decimated. Right now, we could divide ourselves into two groups: those who think LLMs are just a performance tool, and those who believe AI is going to replace us in the near future.</p>
+<p>So, what’s the point of struggling to implement my own varint or B-tree, or skimming through the SQLite spec, when I can just type what I want and go watch a TV show? And an even more interesting question: why keep learning something new when the LLM already knows everything?</p>
+<p>There are two ways to answer these questions. The first is that learning is a skill we need to hone, or it gets rusty. The second is that we don’t know what the future will look like; maybe AGI will arrive this year and 99% of the working population will be laid off, or maybe not. What I know for sure is that, as always, the fittest have the best chance to survive. Being able to learn new things and adapt to change is, and will remain, a differentiator.</p>
+<p>So how do we actually learn in an era of AI shortcuts? By embracing struggle rather than avoiding it.</p>
+<h2 id="fall-learn-stand-stronger">Fall, Learn, Stand Stronger</h2>
+<p>Once we have decided that we don’t want to give up on learning new things, whether for fun or profit, we should ask ourselves what the best way to achieve it is. LLM advocates like Simon Willison believe that AI can be a more effective way to learn than the old-fashioned method of coding everything by hand:</p>
+<picture><source type="image/avif" srcset="/javiermolinar.github.io/blog/aboutlearning/i7djxrZ-9d-2192.avif 2192w"><source type="image/webp" srcset="/javiermolinar.github.io/blog/aboutlearning/i7djxrZ-9d-2192.webp 2192w"><img loading="lazy" decoding="async" src="/javiermolinar.github.io/blog/aboutlearning/i7djxrZ-9d-2192.jpeg" alt="Simon opinions" style="width: 100%; max-width: 800px; cursor: pointer;" onclick="window.open(this.src)" width="2192" height="302"></picture>
+<p>Simon raises a fair point, yet his approach overlooks fundamental principles of how we actually learn. His method prioritizes speed over depth—a trade-off that costs us more than we realize.
+The danger of the “15-minute review” is the illusion of competence. When an LLM explains its code, it feels clear because the AI has already done the heavy lifting of synthesis. But reading a solution is a passive act, not an active one.</p>
+<p>The classic learning pyramid shows why “doing the real thing” is the foundation of learning, while reading solutions sits near the top. Learning sticks through repetition and practice: just like multiplication only becomes second nature after thousands of exercises, coding concepts become real only when we build them ourselves. Trying to shortcut this process with an LLM risks creating the illusion of competence rather than understanding. This is so true that it also applies to physical abilities, like learning to do a handstand.</p>
+<p><picture><source type="image/avif" srcset="/javiermolinar.github.io/blog/aboutlearning/4kt-sXCLuj-1092.avif 1092w"><source type="image/webp" srcset="/javiermolinar.github.io/blog/aboutlearning/4kt-sXCLuj-1092.webp 1092w"><img loading="lazy" decoding="async" src="/javiermolinar.github.io/blog/aboutlearning/4kt-sXCLuj-1092.png" alt="learning pyramid" width="1092" height="718"></picture></p>
+<p>This doesn't mean LLMs have no place in learning, quite the opposite. They're powerful companions when used wisely: to explain concepts you're struggling with, to suggest approaches when you're stuck, or to review your completed work. But they should never replace the struggle that builds true understanding.</p>
+<p>Am I a prehistoric fella? Maybe. But I want to be the one who knows how to start a fire.
+<em><strong>Keep learning</strong></em>.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/javiermolinar.github.io/blog/prcommentfromllm/">Writing a good pull request description is more important than ever</a></li>
+</ul>
 
 			</heading-anchors>
 		</main>
@@ -1443,7 +1504,7 @@ This is compatible with:
 			</p>
 		</footer>
 
-		<!-- This page `/404.html` was built on 2025-12-23T15:06:31.998Z -->
+		<!-- This page `/blog/aboutlearning/` was built on 2025-12-23T15:06:31.998Z -->
 		<script type="module" src="/javiermolinar.github.io/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>
